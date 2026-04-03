@@ -1,0 +1,2 @@
+echo "Visit http://127.0.0.1:8080 to use your application"
+kubectl -n airbyte port-forward deployment/airbyte-server 8080:8001

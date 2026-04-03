@@ -1,0 +1,23 @@
+# custom-values.yaml
+webserverSecretKey: "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8"
+env:
+  - name: "_PIP_ADDITIONAL_REQUIREMENTS"
+    value: "apache-airflow-providers-airbyte==3.3.0 apache-airflow-providers-cncf-kubernetes"
+
+# Tắt các ví dụ lằng nhằng của Airflow để UI sạch sẽ
+airflow:
+  config:
+    core:
+      load_examples: 'False'
+      # test_connection: 'Enabled' # Bật tính năng Test Connection trong Airflow UI để dễ debug kết nối BigQuery
+
+# Cấu hình tính năng GitSync (Để Airflow tự kéo DAG từ Github)
+dags:
+  gitSync:
+    enabled: true # Bật nếu bạn muốn dùng GitSync để tự động cập nhật DAG từ repo
+    repo: https://github.com/lamtranhuynh911/crypto-data-pipeline.git
+    branch: main
+    subPath: "" # Thư mục chứa DAG trong repo, để trống nếu để ở ngoài cùng
+    # Nếu repo là Private, bạn sẽ cần cấu hình thêm sshKeySecret (có thể làm sau)
+
+# Bật KubernetesExecutor hoặc CeleryExecutor (Mặc định bản Helm dùng Celery + Keda rất xịn)

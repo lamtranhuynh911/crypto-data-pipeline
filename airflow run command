@@ -1,0 +1,1 @@
+kubectl port-forward svc/my-airflow-api-server 8081:8080 --namespace airflow

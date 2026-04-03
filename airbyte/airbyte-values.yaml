@@ -1,0 +1,21 @@
+global:
+  serviceAccountName: "data-pipeline-ksa"
+
+serviceAccount:
+  create: false
+  name: "data-pipeline-ksa"
+
+worker:
+  resources:
+    requests:
+      cpu: 500m
+      memory: 1Gi
+    limits:
+      cpu: 1000m
+      memory: 2Gi
+
+webapp:
+  enabled: true
+  service:
+    type: ClusterIP
+    port: 80

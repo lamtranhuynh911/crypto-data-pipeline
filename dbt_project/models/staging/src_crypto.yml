@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: crypto_raw
+    database: data-490504  # ID Project GCP của bạn
+    schema: crypto_raw     # Tên dataset chứa data thô
+    tables:
+      - name: listing
+      - name: categories

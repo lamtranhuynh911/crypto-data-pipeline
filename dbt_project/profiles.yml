@@ -1,0 +1,11 @@
+# profiles.yml
+crypto_warehouse:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth  # Sử dụng Workload Identity (Không cần file JSON)
+      project: data-490504  # Thay bằng Project ID thật
+      dataset: data_marts # Ví dụ: crypto_staging
+      threads: 4
+      location: us-west1 # Hoặc asia-southeast1 (tuỳ thuộc vào nơi bạn tạo Dataset trên BigQuery)
